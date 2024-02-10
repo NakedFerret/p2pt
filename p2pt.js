@@ -4,11 +4,13 @@
  * Licensed under MIT
  */
 
-const WebSocketTracker = require('bittorrent-tracker/lib/client/websocket-tracker')
+import { WebSocketTracker } from 'bittorrent-tracker';
+
 const randombytes = require('randombytes')
 const EventEmitter = require('events')
 const sha1 = require('simple-sha1')
 const debug = require('debug')('p2pt')
+const { Buffer } = require('buffer')
 
 /**
  * This character would be prepended to easily identify JSON msgs
@@ -372,4 +374,6 @@ class P2PT extends EventEmitter {
   }
 }
 
-module.exports = P2PT
+window.P2PT = P2PT;
+module.exports = P2PT;
+
